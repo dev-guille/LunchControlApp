@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 📌 Función para obtener pedidos
     async function obtenerPedidos() {
         try {
-            const res = await fetch("http://localhost:3000/pedidos");
+            /* const res = await fetch("http://localhost:3000/pedidos"); *//* localmente */
+            const res = await fetch("https://lunchcontrolapp.onrender.com/pedidos");/* Remotamente */
             const pedidos = await res.json();
 
             if (esAdmin) {
@@ -89,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         try {
-            await fetch("http://localhost:3000/pedidos", {
+            await fetch("https://lunchcontrolapp.onrender.com/pedidos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ nombre, tipoComida })
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 📌 Función para actualizar un pedido (pago/entrega)
     async function actualizarPedido(id, datos) {
         try {
-            await fetch(`http://localhost:3000/pedidos/${id}`, {
+            await fetch(`https://lunchcontrolapp.onrender.com/pedidos/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(datos)
@@ -121,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!confirm("¿Estás seguro de eliminar este pedido?")) return;
 
         try {
-            await fetch(`http://localhost:3000/pedidos/${id}`, { method: "DELETE" });
+            await fetch(`https://lunchcontrolapp.onrender.com/pedidos/${id}`, { method: "DELETE" });
             obtenerPedidos();
         } catch (error) {
             console.error("Error al eliminar pedido:", error);
@@ -133,7 +134,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!confirm("¿Quieres eliminar todos los pedidos?")) return;
 
         try {
-            await fetch("http://localhost:3000/pedidos", { method: "DELETE" });
+            await fetch("https://lunchcontrolapp.onrender.com/pedidos", { method: "DELETE" });
             obtenerPedidos();
         } catch (error) {
             console.error("Error al limpiar pedidos:", error);
