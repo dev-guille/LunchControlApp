@@ -1,0 +1,145 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+body {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Estilos del contenedor */
+div {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+h2, h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+input, select, button {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Botón */
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Lista de pedidos */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* Estilos de cada pedido */
+li {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+/* Efecto hover en los pedidos */
+li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Estilos de los textos dentro del pedido */
+li p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Botones dentro de cada pedido */
+li button {
+    width: auto;
+    padding: 8px 15px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Botón de eliminar */
+button.eliminar {
+    background: #dc3545;
+}
+
+button.eliminar:hover {
+    background: #b02a37;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* 📱 Móviles (máx. 600px) */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    div {
+        padding: 15px;
+    }
+
+    input, select, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    li {
+        padding: 12px;
+    }
+}
+
+/* 💻 Laptops y tablets (máx. 1024px) */
+@media (max-width: 1024px) {
+    input, select, button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    li {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,172 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+body {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Estilos del contenedor */
+div {
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos del total de pedidos */
+h3 {
+    text-align: center;
+    color: #007bff;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+#totalPedidos {
+    font-weight: bold;
+    font-size: 20px;
+    color: #ff5733;
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+/* 📌 Estilos para los botones */
+button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Botón "Marcar Pagado" */
+button[onclick^="marcarPagado"] {
+    background: #28a745;
+    color: white;
+}
+
+/* Botón "Marcar Entregado" */
+button[onclick^="marcarEntregado"] {
+    background: #ff9800;
+    color: white;
+}
+
+/* Botón "Eliminar" */
+button[onclick^="eliminarPedido"] {
+    background: #dc3545;
+    color: white;
+}
+
+/* Botón "Eliminar todos los pedidos" */
+#btnLimpiar {
+    background: #dc3545;
+    color: white;
+    padding: 10px 15px;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* 📱 Estilos para móviles (máx. 600px) */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    div {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    #btnLimpiar {
+        font-size: 14px;
+    }
+}
+
+/* 💻 Estilos para laptops y tablets (máx. 1024px) */
+@media (max-width: 1024px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    #btnLimpiar {
+        font-size: 16px;
+    }
+}
+/* Botón "Eliminar" individual */
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}

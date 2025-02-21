@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch | Pedidos</title>
+    <link rel="stylesheet" href="css/styleClientes.css">
+    <link rel="icon" href="assets/icono.png" type="image/png">
+</head>
+<body>
+    <div>
+        <h2>📋 Hacer un Pedido</h2>
+        <form id="formPedido">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <select id="tipoComida" required>
+                <option value="" disabled selected>🔍 Selecciona un tipo de comida</option>
+                <option value="Normal">Normal</option>
+                <option value="Vegetariano">Vegetariano</option>
+            </select>
+            <button type="submit">📌 Solicitar Pedido</button>
+        </form>
+    
+        <h3>📦 Mis Pedidos</h3>
+        <ul id="listaPedidosCliente"></ul>
+    </div>
+    <script type="text/javascript" src="js/logica.js"></script>
+</body>
+</html>

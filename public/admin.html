@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch | Admin</title>
+    <link rel="stylesheet" href="css/styleCajero.css">
+    <link rel="icon" href="assets/icono.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Vista del Cajero -->
+    <div>
+        <h2>💰 Control de Pedidos (Admin)</h2>
+        <form id="formPedido">
+        </form>
+        <h3>📊 Total de Pedidos del Día: <span id="totalPedidos">0</span></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo de Comida</th>
+                    <th>Pagado</th>
+                    <th>Ticket Entregado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPedidos"></tbody>
+        </table>
+
+        <!-- Botón para limpiar todos los pedidos -->
+        <button id="btnLimpiar" class="btn-danger">🗑️ Limpiar Pedidos del Día</button>
+    </div>
+    <script type="text/javascript" src="js/logica.js"></script>
+</body>
+</html>
