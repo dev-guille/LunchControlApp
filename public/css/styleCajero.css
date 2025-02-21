@@ -1,4 +1,4 @@
-/* Reset básico */
+/* 📌 Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,13 @@
     font-family: Arial, sans-serif;
 }
 
-/* Contenedor principal */
+/* 📌 Contenedor principal */
 body {
     background-color: #f4f4f4;
     padding: 20px;
 }
 
-/* Estilos del contenedor */
+/* 📌 Estilos del contenedor */
 div {
     max-width: 1200px;
     margin: auto;
@@ -22,14 +22,14 @@ div {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Encabezado */
+/* 📌 Encabezado */
 h2 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Estilos del total de pedidos */
+/* 📌 Estilos del total de pedidos */
 h3 {
     text-align: center;
     color: #007bff;
@@ -43,23 +43,49 @@ h3 {
     color: #ff5733;
 }
 
-/* Estilos de la tabla */
+/* 📌 Contenedor para la tabla (permite desplazamiento horizontal en móviles) */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Agrega scroll horizontal si es necesario */
+}
+
+/* 📌 Estilos de la tabla mejorados */
 table {
     width: 100%;
     border-collapse: collapse;
     background: white;
     margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
+/* 📌 Encabezados de la tabla */
 th {
     background: #007bff;
     color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+}
+
+/* 📌 Celdas de la tabla */
+td {
+    padding: 12px;
+    border: none;
+}
+
+/* 📌 Filas alternas */
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* 📌 Hover en filas */
+tr:hover {
+    background: #e2f0ff;
+    transition: background 0.3s ease-in-out;
 }
 
 /* 📌 Estilos para los botones */
@@ -77,25 +103,25 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Botón "Marcar Pagado" */
+/* 📌 Botón "Marcar Pagado" */
 button[onclick^="marcarPagado"] {
     background: #28a745;
     color: white;
 }
 
-/* Botón "Marcar Entregado" */
+/* 📌 Botón "Marcar Entregado" */
 button[onclick^="marcarEntregado"] {
     background: #ff9800;
     color: white;
 }
 
-/* Botón "Eliminar" */
+/* 📌 Botón "Eliminar" */
 button[onclick^="eliminarPedido"] {
     background: #dc3545;
     color: white;
 }
 
-/* Botón "Eliminar todos los pedidos" */
+/* 📌 Botón "Eliminar todos los pedidos" */
 #btnLimpiar {
     background: #dc3545;
     color: white;
@@ -105,9 +131,26 @@ button[onclick^="eliminarPedido"] {
     font-size: 16px;
 }
 
-/* RESPONSIVE DESIGN */
+/* 📌 Botón "Eliminar" individual */
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
 
-/* 📱 Estilos para móviles (máx. 600px) */
+.btn-delete:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+/* 📱 RESPONSIVE DESIGN */
+
+/* 📌 Móviles (máx. 600px) */
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -117,17 +160,26 @@ button[onclick^="eliminarPedido"] {
         padding: 15px;
     }
 
+    /* Ajuste de tabla */
+    .table-container {
+        overflow-x: auto; /* Permite desplazamiento horizontal */
+    }
+
     table {
         font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 
     th, td {
         padding: 8px;
     }
 
+    /* Ajuste de botones */
     button {
         font-size: 12px;
-        padding: 6px 10px;
+        padding: 6px 8px;
     }
 
     #btnLimpiar {
@@ -135,7 +187,7 @@ button[onclick^="eliminarPedido"] {
     }
 }
 
-/* 💻 Estilos para laptops y tablets (máx. 1024px) */
+/* 💻 Laptops y tablets (máx. 1024px) */
 @media (max-width: 1024px) {
     table {
         font-size: 14px;
@@ -153,20 +205,4 @@ button[onclick^="eliminarPedido"] {
     #btnLimpiar {
         font-size: 16px;
     }
-}
-/* Botón "Eliminar" individual */
-.btn-delete {
-    background: #dc3545;
-    color: white;
-    padding: 6px 10px;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.btn-delete:hover {
-    background: #c82333;
-    transform: scale(1.05);
 }

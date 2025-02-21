@@ -46,10 +46,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <td>${pedido.nombre}</td>
                 <td>${pedido.tipoComida}</td>
                 <td>
-                    <input type="checkbox" ${pedido.pagado ? "checked" : ""} data-id="${pedido._id}" class="check-pagado">
+                    <span data-id="${pedido._id}" class="toggle-pagado" style="cursor: pointer;">
+                        ${pedido.pagado ? "✅" : "❌"}
+                    </span>
                 </td>
                 <td>
-                    <input type="checkbox" ${pedido.entregado ? "checked" : ""} data-id="${pedido._id}" class="check-entregado">
+                    <span data-id="${pedido._id}" class="toggle-entregado" style="cursor: pointer;">
+                        ${pedido.entregado ? "✅" : "❌"}
+                    </span>
                 </td>
                 <td>
                     <button data-id="${pedido._id}" class="btn-eliminar">🗑️</button>
@@ -58,16 +62,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             tablaPedidos.appendChild(tr);
         });
 
-        // Agregar eventos a los checkboxes y botones de eliminar
-        document.querySelectorAll(".check-pagado").forEach(checkbox => {
-            checkbox.addEventListener("change", async (e) => {
-                await actualizarPedido(e.target.dataset.id, { pagado: e.target.checked });
+        document.querySelectorAll(".toggle-pagado").forEach(span => {
+            span.addEventListener("click", async (e) => {
+                const nuevoEstado = e.target.textContent === "✅" ? false : true;
+                await actualizarPedido(e.target.dataset.id, { pagado: nuevoEstado });
             });
         });
 
-        document.querySelectorAll(".check-entregado").forEach(checkbox => {
-            checkbox.addEventListener("change", async (e) => {
-                await actualizarPedido(e.target.dataset.id, { entregado: e.target.checked });
+        document.querySelectorAll(".toggle-entregado").forEach(span => {
+            span.addEventListener("click", async (e) => {
+                const nuevoEstado = e.target.textContent === "✅" ? false : true;
+                await actualizarPedido(e.target.dataset.id, { entregado: nuevoEstado });
             });
         });
 
@@ -77,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         });
     }
+
 
     // 📌 Función para enviar un nuevo pedido
     formPedido?.addEventListener("submit", async (e) => {
