@@ -56,20 +56,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </span>
                 </td>
                 <td>
-
-                </td>
-                <td>
-                    
-                </td>
-                <td>
-                    
-                </td>
-                <td>
-                    <span data-id="${pedido._id}" class="toggle-cambio" style="cursor: pointer;">
-                        ${pedido.cambio ? "✅" : "❌"}
-                    </span>
-                </td>
-                <td>
                     <button data-id="${pedido._id}" class="btn-eliminar">🗑️</button>
                 </td>
             `;
@@ -87,13 +73,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             span.addEventListener("click", async (e) => {
                 const nuevoEstado = e.target.textContent === "✅" ? false : true;
                 await actualizarPedido(e.target.dataset.id, { entregado: nuevoEstado });
-            });
-        });
-
-        document.querySelectorAll(".toggle-cambio").forEach(span => {
-            span.addEventListener("click", async (e) => {
-                const nuevoEstado = e.target.textContent === "✅" ? false : true;
-                await actualizarPedido(e.target.dataset.id, { cambio: nuevoEstado });
             });
         });
 
