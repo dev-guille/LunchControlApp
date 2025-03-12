@@ -56,10 +56,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </span>
                 </td>
                 <td>
-                    <input type="number" data-id="${pedido._id}" class="dinero-recibido" value="${pedido.dineroRecibido || ''}">
+                    <input type="number" data-id="${pedido._id}" class="dinero-recibido input-estilizado" value="${pedido.dineroRecibido || ''}">
                 </td>
                 <td>
-                    <input type="number" data-id="${pedido._id}" class="precio-comida" value="${pedido.precioComida || ''}">
+                    <input type="number" data-id="${pedido._id}" class="precio-comida input-estilizado" value="${pedido.precioComida || ''}">
                 </td>
                 <td>
                     <label>${pedido.cambio}</label>

@@ -206,3 +206,21 @@ button[onclick^="eliminarPedido"] {
         font-size: 16px;
     }
 }
+
+
+.input-estilizado {
+    width: 80px;  /* Ajusta el ancho */
+    padding: 5px;
+    border: 2px solid #007bff;  /* Borde azul */
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-estilizado:focus {
+    outline: none;
+    border-color: #0056b3;  /* Azul más oscuro al enfocar */
+    background-color: #f0f8ff; /* Azul claro */
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+}
