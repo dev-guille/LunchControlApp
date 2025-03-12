@@ -47,8 +47,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <td>${pedido.tipoComida}</td>
                     <td>${pedido.pagado ? "✅" : "❌"}</td>
                     <td>${pedido.entregado ? "✅" : "❌"}</td>
+                    
                 `;
-                tbody.appendChild(tr);
+                listaPedidosCliente.appendChild(tr);
             });
         }
         
