@@ -6,7 +6,13 @@ const pedidoSchema = new mongoose.Schema({
     tipoComida: { type: String, required: true },
     pagado: { type: Boolean, default: false },
     entregado: { type: Boolean, default: false },
-    cambio: {type: Boolean, default: false}
+    dineroRecibido: { type: Number, required: true },  
+    precioComida:  {type: Number, required: true }, 
+    cambio: { 
+        type: Number, 
+        default: function() { return this.dineroRecibido - this.precioComida; } 
+    },
+    cambioEntregado: {type: Boolean, default: false}
 });
 
 // 📌 Crear el modelo y exportarlo

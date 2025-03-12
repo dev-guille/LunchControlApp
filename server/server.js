@@ -36,9 +36,9 @@ app.post('/pedidos', async (req, res) => {
 // ✅ Marcar como pagado o entregado
 app.put('/pedidos/:id', async (req, res) => {
     const { id } = req.params;
-    const { pagado, entregado, cambio } = req.body;
+    const { pagado, entregado, cambioEntregado } = req.body;
 
-    const pedidoActualizado = await Pedido.findByIdAndUpdate(id, { pagado, entregado, cambio }, { new: true });
+    const pedidoActualizado = await Pedido.findByIdAndUpdate(id, { pagado, entregado, cambioEntregado }, { new: true });
     if (!pedidoActualizado) return res.status(404).json({ error: 'Pedido no encontrado' });
 
     res.json(pedidoActualizado);

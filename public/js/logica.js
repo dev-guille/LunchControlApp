@@ -56,17 +56,21 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </span>
                 </td>
                 <td>
-
+                    <input>
+                    </input>
                 </td>
                 <td>
-                    
+                    <input>
+                    </input>
                 </td>
                 <td>
+                    <label>
                     
+                    </label>
                 </td>
                 <td>
                     <span data-id="${pedido._id}" class="toggle-cambio" style="cursor: pointer;">
-                        ${pedido.cambio ? "✅" : "❌"}
+                        ${pedido.cambioEntregado ? "✅" : "❌"}
                     </span>
                 </td>
                 <td>
@@ -93,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.querySelectorAll(".toggle-cambio").forEach(span => {
             span.addEventListener("click", async (e) => {
                 const nuevoEstado = e.target.textContent === "✅" ? false : true;
-                await actualizarPedido(e.target.dataset.id, { cambio: nuevoEstado });
+                await actualizarPedido(e.target.dataset.id, { cambioEntregado: nuevoEstado });
             });
         });
 
