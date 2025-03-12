@@ -5,11 +5,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const totalPedidos = document.getElementById("totalPedidos");
     const btnLimpiar = document.getElementById("btnLimpiar");
 
+    // Verificar en qué vista estamos
     const esAdmin = !!document.querySelector("table");
 
+    // 📌 Función para obtener pedidos
     async function obtenerPedidos() {
         try {
-            const res = await fetch("https://lunchcontrolapp.onrender.com/pedidos");
+            /* const res = await fetch("http://localhost:3000/pedidos"); *//* localmente */
+            const res = await fetch("https://lunchcontrolapp.onrender.com/pedidos");/* Remotamente */
             const pedidos = await res.json();
 
             if (esAdmin) {
@@ -22,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
+    // 📌 Función para renderizar pedidos en la vista de cliente
     function renderPedidosCliente(pedidos) {
         listaPedidosCliente.innerHTML = "";
         pedidos.forEach(pedido => {
@@ -31,6 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
+    // 📌 Función para renderizar pedidos en la vista de administrador
     function renderPedidosAdmin(pedidos) {
         tablaPedidos.innerHTML = "";
         totalPedidos.textContent = pedidos.length;
@@ -51,13 +56,17 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </span>
                 </td>
                 <td>
-                    <input type="number" class="dinero-recibido" data-id="${pedido._id}" value="${pedido.dineroRecibido || ''}">
+                    <input>
+                    </input>
                 </td>
                 <td>
-                    <input type="number" class="precio-comida" data-id="${pedido._id}" value="${pedido.precioComida || ''}">
+                    <input>
+                    </input>
                 </td>
                 <td>
-                    <input type="number" class="cambio" data-id="${pedido._id}" value="${pedido.cambio || ''}" readonly>
+                    <label>
+                    
+                    </label>
                 </td>
                 <td>
                     <span data-id="${pedido._id}" class="toggle-cambio" style="cursor: pointer;">
@@ -69,25 +78,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </td>
             `;
             tablaPedidos.appendChild(tr);
-        });
-
-        document.querySelectorAll(".dinero-recibido, .precio-comida").forEach(input => {
-            input.addEventListener("input", async (e) => {
-                const id = e.target.dataset.id;
-                const row = e.target.closest("tr");
-
-                const dineroRecibido = parseFloat(row.querySelector(".dinero-recibido").value) || 0;
-                const precioComida = parseFloat(row.querySelector(".precio-comida").value) || 0;
-                const cambio = dineroRecibido - precioComida;
-
-                row.querySelector(".cambio").value = cambio >= 0 ? cambio.toFixed(2) : "0.00";
-
-                await actualizarPedido(id, {
-                    dineroRecibido,
-                    precioComida,
-                    cambio: cambio >= 0 ? cambio : 0
-                });
-            });
         });
 
         document.querySelectorAll(".toggle-pagado").forEach(span => {
@@ -118,6 +108,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
+
+    // 📌 Función para enviar un nuevo pedido
     formPedido?.addEventListener("submit", async (e) => {
         e.preventDefault();
         const nombre = document.getElementById("nombre")?.value;
@@ -142,6 +134,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
+    // 📌 Función para actualizar un pedido (pago/entrega)
     async function actualizarPedido(id, datos) {
         try {
             await fetch(`https://lunchcontrolapp.onrender.com/pedidos/${id}`, {
@@ -155,6 +148,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
+    // 📌 Función para eliminar un pedido
     async function eliminarPedido(id) {
         if (!confirm("¿Estás seguro de eliminar este pedido?")) return;
 
@@ -166,6 +160,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
+    // 📌 Función para limpiar todos los pedidos
     btnLimpiar?.addEventListener("click", async () => {
         if (!confirm("¿Quieres eliminar todos los pedidos?")) return;
 
@@ -177,5 +172,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
+    // Cargar los pedidos al iniciar la página
     obtenerPedidos();
 });
