@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             const res = await fetch("https://lunchcontrolapp.onrender.com/pedidos");/* Remotamente */
             const pedidos = await res.json();
 
+            console.log("Pedidos obtenidos:", pedidos); // Verifica los datos en la consola
+
             if (esAdmin) {
                 renderPedidosAdmin(pedidos);
             } else {
@@ -36,13 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     } */
 
         function renderPedidosCliente(pedidos) {
-            const tbody = document.getElementById("listaPedidosCliente");
-            if (!tbody) {
-                console.error("No se encontró el tbody de la tabla.");
-                return;
-            }
-
-            tbody.innerHTML = ""; // Limpiar contenido anterior
+            tablaPedidos.innerHTML = ""; // Limpiar contenido anterior
 
             pedidos.forEach(pedido => {
                 const tr = document.createElement("tr");
@@ -52,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <td>${pedido.pagado ? "✅" : "❌"}</td>
                     <td>${pedido.entregado ? "✅" : "❌"}</td>
                 `;
-                tbody.appendChild(tr);
+                tablaPedidos.appendChild(tr);
             });
         }
         
