@@ -10,7 +10,7 @@ const pedidoSchema = new mongoose.Schema({
     dineroRecibido: { type: Number, required: false },  
     cambio: { 
         type: Number, 
-        default: function() { return this.dineroEntregado - this.precio; } 
+        default: function() { return this.dineroRecibido - this.precioComida; } 
     },
     cambioEntregado: {type: Boolean, default: false}
 });
