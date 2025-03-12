@@ -36,10 +36,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     } */
 
         function renderPedidosCliente(pedidos) {
-            // Limpiar contenido anterior
-            listaPedidosCliente.innerHTML = "";
-        
-            // Agregar filas con los pedidos
+            const tbody = document.getElementById("listaPedidosCliente");
+            if (!tbody) {
+                console.error("No se encontró el tbody de la tabla.");
+                return;
+            }
+
+            tbody.innerHTML = ""; // Limpiar contenido anterior
+
             pedidos.forEach(pedido => {
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
@@ -47,9 +51,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <td>${pedido.tipoComida}</td>
                     <td>${pedido.pagado ? "✅" : "❌"}</td>
                     <td>${pedido.entregado ? "✅" : "❌"}</td>
-                    
                 `;
-                listaPedidosCliente.appendChild(tr);
+                tbody.appendChild(tr);
             });
         }
         
