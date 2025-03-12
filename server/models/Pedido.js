@@ -6,6 +6,12 @@ const pedidoSchema = new mongoose.Schema({
     tipoComida: { type: String, required: true },
     pagado: { type: Boolean, default: false },
     entregado: { type: Boolean, default: false },
+    precioComida: { type: Number, required: true },  
+    dineroRecibido: { type: Number, required: true },  
+    cambio: { 
+        type: Number, 
+        default: function() { return this.dineroEntregado - this.precio; } 
+    },
     cambioEntregado: {type: Boolean, default: false}
 });
 
