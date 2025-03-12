@@ -26,14 +26,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // 📌 Función para renderizar pedidos en la vista de cliente
-    function renderPedidosCliente(pedidos) {
+    /* function renderPedidosCliente(pedidos) {
         listaPedidosCliente.innerHTML = "";
         pedidos.forEach(pedido => {
             const li = document.createElement("li");
             li.innerHTML = `${pedido.nombre} - ${pedido.tipoComida} ${pedido.pagado ? "✅" : "❌"} ${pedido.entregado ? "✅" : "❌"}`;
             listaPedidosCliente.appendChild(li);
         });
-    }
+    } */
+
+        function renderPedidosCliente(pedidos) {
+            const tablaPedidosCliente = document.getElementById("tablaPedidosCliente");
+            const tbody = tablaPedidosCliente.querySelector("tbody");
+        
+            // Limpiar contenido anterior
+            tbody.innerHTML = "";
+        
+            // Agregar filas con los pedidos
+            pedidos.forEach(pedido => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${pedido.nombre}</td>
+                    <td>${pedido.tipoComida}</td>
+                    <td>${pedido.pagado ? "✅" : "❌"}</td>
+                    <td>${pedido.entregado ? "✅" : "❌"}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+        
 
     // 📌 Función para renderizar pedidos en la vista de administrador
     function renderPedidosAdmin(pedidos) {
