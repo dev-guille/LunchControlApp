@@ -36,11 +36,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     } */
 
         function renderPedidosCliente(pedidos) {
-            const tablaPedidosCliente = document.getElementById("tablaPedidosCliente");
-            const tbody = tablaPedidosCliente.querySelector("tbody");
-        
             // Limpiar contenido anterior
-            tbody.innerHTML = "";
+            listaPedidosCliente.innerHTML = "";
         
             // Agregar filas con los pedidos
             pedidos.forEach(pedido => {
