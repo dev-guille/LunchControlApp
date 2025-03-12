@@ -102,6 +102,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                 await eliminarPedido(e.target.dataset.id);
             });
         });
+
+        document.querySelectorAll(".precio-comida, .dinero-recibido").forEach(input => {
+            input.addEventListener("change", async (e) => {
+                const id = e.target.dataset.id;
+                const precioComida = document.querySelector(`.precio-comida[data-id="${id}"]`).value;
+                const dineroRecibido = document.querySelector(`.dinero-recibido[data-id="${id}"]`).value;
+        
+                if (!precioComida || !dineroRecibido) return;
+        
+                await actualizarPedido(id, { precioComida: Number(precioComida), dineroRecibido: Number(dineroRecibido) });
+            });
+        });
+        
     }
 
 
