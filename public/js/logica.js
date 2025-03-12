@@ -102,6 +102,25 @@ document.addEventListener("DOMContentLoaded", async () => {
                 await eliminarPedido(e.target.dataset.id);
             });
         });
+
+        document.querySelectorAll(".dinero-recibido, .precio-comida").forEach(input => {
+            input.addEventListener("input", async (e) => {
+                const id = e.target.dataset.id;
+                const row = e.target.closest("tr");
+
+                const dineroRecibido = parseFloat(row.querySelector(".dinero-recibido").value) || 0;
+                const precioComida = parseFloat(row.querySelector(".precio-comida").value) || 0;
+                const cambio = dineroRecibido - precioComida;
+
+                row.querySelector(".cambio").value = cambio >= 0 ? cambio.toFixed(2) : "0.00";
+
+                await actualizarPedido(id, {
+                    dineroRecibido,
+                    precioComida,
+                    cambio: cambio >= 0 ? cambio : 0
+                });
+            });
+        });
     }
 
 
