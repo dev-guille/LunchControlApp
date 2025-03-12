@@ -36,13 +36,23 @@ app.post('/pedidos', async (req, res) => {
 // ✅ Marcar como pagado o entregado
 app.put('/pedidos/:id', async (req, res) => {
     const { id } = req.params;
-    const { pagado, entregado, cambioEntregado } = req.body;
+    const { pagado, entregado, cambioEntregado, precioComida, dineroRecibido } = req.body;
 
-    const pedidoActualizado = await Pedido.findByIdAndUpdate(id, { pagado, entregado, cambioEntregado }, { new: true });
+    let cambioCalculado = 0;
+    if (precioComida !== undefined && dineroRecibido !== undefined) {
+        cambioCalculado = dineroRecibido - precioComida;
+    }
+
+    const pedidoActualizado = await Pedido.findByIdAndUpdate(id, 
+        { pagado, entregado, cambioEntregado, precioComida, dineroRecibido, cambio: cambioCalculado }, 
+        { new: true }
+    );
+
     if (!pedidoActualizado) return res.status(404).json({ error: 'Pedido no encontrado' });
 
     res.json(pedidoActualizado);
 });
+
 
 // ❌ Eliminar un pedido
 app.delete('/pedidos/:id', async (req, res) => {

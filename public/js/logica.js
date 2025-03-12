@@ -56,17 +56,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </span>
                 </td>
                 <td>
-                    <input>
-                    </input>
+                    <input type="number" data-id="${pedido._id}" class="dinero-recibido" value="${pedido.dineroRecibido || ''}">
                 </td>
                 <td>
-                    <input>
-                    </input>
+                    <input type="number" data-id="${pedido._id}" class="precio-comida" value="${pedido.precioComida || ''}">
                 </td>
                 <td>
-                    <label>
-                    
-                    </label>
+                    <label>${pedido.cambio}</label>
                 </td>
                 <td>
                     <span data-id="${pedido._id}" class="toggle-cambio" style="cursor: pointer;">

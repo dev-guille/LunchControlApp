@@ -8,15 +8,16 @@ const pedidoSchema = new mongoose.Schema({
     entregado: { type: Boolean, default: false },
     precioComida: { type: Number, required: false },  
     dineroRecibido: { type: Number, required: false },  
-    cambio: { 
-        type: Number, 
-        default: function() { 
-            return (this.dineroRecibido && this.precioComida) 
-                ? this.dineroRecibido - this.precioComida 
-                : 0; // Si alguno es undefined, el cambio será 0
-        } 
-    },
+    cambio: { type: Number, default: 0 }, 
     cambioEntregado: {type: Boolean, default: false}
+});
+
+// Middleware para calcular el cambio antes de guardar
+pedidoSchema.pre("save", function (next) {
+    if (this.dineroRecibido !== undefined && this.precioComida !== undefined) {
+        this.cambio = this.dineroRecibido - this.precioComida;
+    }
+    next();
 });
 
 // 📌 Crear el modelo y exportarlo
