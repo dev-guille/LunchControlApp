@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     } */
 
         function renderPedidosCliente(pedidos) {
-            tablaPedidos.innerHTML = ""; // Limpiar contenido anterior
+            tablaPedidosCliente.innerHTML = ""; // Limpiar contenido anterior
 
             pedidos.forEach(pedido => {
                 const tr = document.createElement("tr");
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <td>${pedido.pagado ? "✅" : "❌"}</td>
                     <td>${pedido.entregado ? "✅" : "❌"}</td>
                 `;
-                tablaPedidos.appendChild(tr);
+                tablaPedidosCliente.appendChild(tr);
             });
         }
         
