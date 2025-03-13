@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const btnLimpiar = document.getElementById("btnLimpiar");
 
     // Verificar en qué vista estamos
-    const esAdmin = !!document.querySelector("table");
+    const esAdmin = !!document.getElementById("tablaPedidos");
 
     // 📌 Función para obtener pedidos
     async function obtenerPedidos() {
