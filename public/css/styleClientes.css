@@ -28,7 +28,9 @@ h2, h3 {
     color: #333;
     margin-bottom: 20px;
 }
-
+h3{
+    padding-top: 60px;
+}
 /* Estilos del formulario */
 form {
     display: flex;

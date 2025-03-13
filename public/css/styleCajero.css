@@ -224,3 +224,15 @@ button[onclick^="eliminarPedido"] {
     background-color: #f0f8ff; /* Azul claro */
     box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
 }
+
+
+footer a {
+    margin: 0 10px;
+    font-size: 18px;
+    color: white;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ffc107;
+}
