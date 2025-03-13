@@ -18,9 +18,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             console.log("Pedidos obtenidos:", pedidos); // Verifica los datos en la consola
 
-            if (esAdmin) {
+            if (esAdmin && tablaPedidos) {
                 renderPedidosAdmin(pedidos);
-            } else {
+            } 
+            else if(!esAdmin && tablaPedidosCliente){
                 renderPedidosCliente(pedidos);
             }
         } catch (error) {
