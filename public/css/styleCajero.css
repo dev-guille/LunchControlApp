@@ -5,17 +5,35 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+header{
+    background-color: #262626;
+    color: white;
+    height: 150px;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Espaciado para mejor visualización */
+}
+.logo{
+    width: 200px;
+    height: auto;
+}
+h1{
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+}
 /* 📌 Contenedor principal */
 body {
     background-color: #f4f4f4;
-    padding: 20px;
+    margin: 0px;
 }
 
 /* 📌 Estilos del contenedor */
 div {
     max-width: 1200px;
-    margin: auto;
+    margin: 20px auto;
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -153,10 +171,11 @@ button[onclick^="eliminarPedido"] {
 /* 📌 Móviles (máx. 600px) */
 @media (max-width: 600px) {
     body {
-        padding: 10px;
+        padding: 0px;
     }
 
     div {
+        margin: 10px;
         padding: 15px;
     }
 
@@ -184,6 +203,26 @@ button[onclick^="eliminarPedido"] {
 
     #btnLimpiar {
         font-size: 14px;
+    }
+
+    header {
+        flex-direction: column; /* Apila los elementos, con el logo abajo */
+        text-align: center;
+        height: auto;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 150px; /* Tamaño menor en móviles */
+    }
+
+    h1 {
+        font-size: 20px; /* Ajuste de tamaño para móviles */
+    }
+    footer {
+        font-size: 16px;
+        padding: 20px 50px;
+        text-align: center;
     }
 }
 
@@ -225,7 +264,17 @@ button[onclick^="eliminarPedido"] {
     box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
 }
 
+footer{
+    background-color: #262626;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 footer a {
     margin: 0 10px;
     font-size: 18px;
@@ -235,4 +284,8 @@ footer a {
 
 footer a:hover {
     color: #ffc107;
+}
+
+.cp{
+    color: #7B7B7B;
 }
