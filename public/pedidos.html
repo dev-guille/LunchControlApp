@@ -9,36 +9,45 @@
     <link rel="icon" href="assets/icono.png" type="image/png">
 </head>
 <body>
-    <div>
-        <h2>📋 Hacer un Pedido</h2>
-        <form id="formPedido">
-            <input type="text" id="nombre" placeholder="Nombre" required>
-            <select id="tipoComida" required>
-                <option value="" disabled selected>🔍 Selecciona un tipo de comida</option>
-                <option value="Normal">Normal</option>
-                <option value="Saludable - Dietético">Saludable - Dietético</option>
-            </select>
-            <button type="submit">📌 Solicitar Pedido</button>
-        </form>
-    
-        <h3>📦 Mis Pedidos</h3>
-        <!-- <ul id="listaPedidosCliente"></ul> -->
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Tipo de Comida</th>
-                    <th>Almuerzo Pagado</th>
-                    <th>Ticket Entregado</th>
-                </tr>
-            </thead>
-            <tbody id="tablaPedidosCliente">
-                <!-- Aquí se insertarán los pedidos dinámicamente -->
-            </tbody>
-        </table>
+    <header>
+        <img class="logo" src="assets/logo1.png" alt="Logo">
+        <h1>LUNCH CONTROL</h1>
+    </header>
+    <main>
+        <div>
+            <h2>📋 Hacer un Pedido</h2>
+            <form id="formPedido">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <select id="tipoComida" required>
+                    <option value="" disabled selected>🔍 Selecciona un tipo de comida</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Saludable - Dietético">Saludable - Dietético</option>
+                </select>
+                <button type="submit">📌 Solicitar Pedido</button>
+            </form>
         
-    </div>
+            <h3>📦 Mis Pedidos</h3>
+            <!-- <ul id="listaPedidosCliente"></ul> -->
+    
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo de Comida</th>
+                        <th>Almuerzo Pagado</th>
+                        <th>Ticket Entregado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaPedidosCliente">
+                    <!-- Aquí se insertarán los pedidos dinámicamente -->
+                </tbody>
+            </table>
+            
+        </div>
+    </main>
+    <footer>
+        <p class="cp">© 2025 Desarrollado por <a href="#" target="_blank">Nélson Guillermo</a> | Todos los derechos reservados.</p>
+    </footer>
     <script type="text/javascript" src="js/logica.js"></script>
 </body>
 </html>

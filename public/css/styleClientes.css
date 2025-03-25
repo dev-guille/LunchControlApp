@@ -9,15 +9,15 @@
 /* Contenedor principal */
 body {
     background-color: #f4f4f4;
-    padding: 20px;
+    margin: 0px;
 }
 
 /* Estilos del contenedor */
 div {
     max-width: 800px;
-    margin: auto;
+    margin: 20px auto;
     background: white;
-    padding: 25px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
